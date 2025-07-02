@@ -1,0 +1,254 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+@layer base {
+  :root {
+    --background: 248 251 253;
+    --foreground: 71 85 105;
+    --card: 255 255 255;
+    --card-foreground: 71 85 105;
+    --popover: 255 255 255;
+    --popover-foreground: 71 85 105;
+    --primary: 51 112 169;
+    --primary-foreground: 248 251 253;
+    --secondary: 241 245 249;
+    --secondary-foreground: 11 33 52;
+    --muted: 241 245 249;
+    --muted-foreground: 100 116 139;
+    --accent: 43 185 211;
+    --accent-foreground: 248 251 253;
+    --destructive: 239 68 68;
+    --destructive-foreground: 248 251 253;
+    --border: 226 232 240;
+    --input: 226 232 240;
+    --ring: 51 112 169;
+    --chart-1: 51 112 169;
+    --chart-2: 43 185 211;
+    --chart-3: 255 120 73;
+    --chart-4: 145 181 214;
+    --chart-5: 119 210 219;
+    --radius: 0.5rem;
+  }
+  
+  .dark {
+    --background: 11 33 52;
+    --foreground: 248 251 253;
+    --card: 19 67 108;
+    --card-foreground: 248 251 253;
+    --popover: 19 67 108;
+    --popover-foreground: 248 251 253;
+    --primary: 248 251 253;
+    --primary-foreground: 11 33 52;
+    --secondary: 29 67 108;
+    --secondary-foreground: 248 251 253;
+    --muted: 29 67 108;
+    --muted-foreground: 148 163 184;
+    --accent: 43 185 211;
+    --accent-foreground: 248 251 253;
+    --destructive: 239 68 68;
+    --destructive-foreground: 248 251 253;
+    --border: 29 67 108;
+    --input: 29 67 108;
+    --ring: 51 112 169;
+    --chart-1: 145 181 214;
+    --chart-2: 119 210 219;
+    --chart-3: 255 120 73;
+    --chart-4: 93 146 192;
+    --chart-5: 71 210 219;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-ocean-50 text-slate-600 font-inter;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-poppins font-semibold text-ocean-900;
+  }
+}
+
+@layer utilities {
+  .font-poppins {
+    font-family: 'Poppins', sans-serif;
+  }
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  .section-padding {
+    @apply py-12 md:py-16 lg:py-20;
+  }
+  
+  /* Clean input styling - Remove all validation and focus borders */
+  .form-input {
+    @apply h-11 border-slate-300 focus:border-ocean-500 focus:ring-1 focus:ring-ocean-500 transition-colors outline-none;
+  }
+  
+  /* Comprehensive removal of browser validation styling */
+  input,
+  select,
+  textarea {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* Remove red borders from invalid states */
+  input:invalid,
+  select:invalid,
+  textarea:invalid {
+    border-color: rgb(203 213 225) !important; /* slate-300 */
+    box-shadow: none !important;
+    outline: none !important;
+  }
+  
+  /* Remove all focus rings and red borders */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="date"],
+  input[type="password"],
+  select,
+  textarea {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="tel"]:focus,
+  input[type="number"]:focus,
+  input[type="date"]:focus,
+  input[type="password"]:focus,
+  select:focus,
+  textarea:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: rgb(51 112 169) !important; /* ocean-500 */
+  }
+  
+  input[type="text"]:invalid,
+  input[type="email"]:invalid,
+  input[type="tel"]:invalid,
+  input[type="number"]:invalid,
+  input[type="date"]:invalid,
+  input[type="password"]:invalid,
+  select:invalid,
+  textarea:invalid {
+    border-color: rgb(203 213 225) !important; /* slate-300 */
+    box-shadow: none !important;
+    outline: none !important;
+  }
+  
+  /* Force remove any browser default styling */
+  *:focus {
+    outline: none !important;
+  }
+  
+  /* Remove any webkit focus rings */
+  input:focus,
+  select:focus,
+  textarea:focus,
+  button:focus {
+    outline: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+  }
+  
+  /* Enhanced button styles - MARINE BLUE PALETTE ONLY */
+  .btn-primary {
+    @apply bg-ocean-500 hover:bg-ocean-600 text-white shadow-sm transition-all duration-200 hover:shadow-md;
+  }
+  
+  .btn-secondary {
+    @apply bg-foam-500 hover:bg-foam-600 text-white shadow-sm transition-all duration-200 hover:shadow-md;
+  }
+  
+  .btn-accent {
+    @apply bg-coral-500 hover:bg-coral-600 text-white shadow-sm transition-all duration-200 hover:shadow-md;
+  }
+  
+  /* Enhanced card styles */
+  .card-elevated {
+    @apply bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1;
+  }
+  
+  /* Text contrast utilities */
+  .text-high-contrast {
+    @apply text-ocean-900;
+  }
+  
+  /* Hide reCAPTCHA v3 badge - Google allows this with proper disclaimer */
+  .grecaptcha-badge {
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+  
+  .text-medium-contrast {
+    @apply text-slate-600;
+  }
+  
+  .text-low-contrast {
+    @apply text-slate-400;
+  }
+  
+  /* Focus utilities for accessibility */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-ocean-500 focus:ring-offset-2;
+  }
+  
+  /* Loading shimmer effect */
+  .shimmer {
+    @apply bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200 animate-shimmer;
+    background-size: 200% 100%;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-ocean-300 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-ocean-400;
+}
+
+/* Selection styling */
+::selection {
+  @apply bg-ocean-200 text-ocean-900;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
