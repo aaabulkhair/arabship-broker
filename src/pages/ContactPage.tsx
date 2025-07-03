@@ -364,19 +364,19 @@ export default function ContactPage() {
               {/* Contact Info Cards */}
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
-                  <Card key={index} className="border-0 shadow-md">
-                    <CardContent className="p-6">
+                  <Card key={index} className="border-0 shadow-md bg-white">
+                    <CardContent className="p-6 bg-white">
                       <div className="flex items-start space-x-4">
-                        <div className="w-12 h-12 bg-ocean-100 rounded-full flex items-center justify-center flex-shrink-0">
-                          <info.icon className="h-6 w-6 text-ocean-500" />
+                        <div className="w-12 h-12 bg-gradient-to-br from-ocean-100 to-ocean-50 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
+                          <info.icon className="h-6 w-6 text-ocean-600" />
                         </div>
-                        <div>
-                          <h3 className="font-poppins font-semibold text-ocean-900 mb-2">
+                        <div className="flex-1">
+                          <h3 className="font-poppins font-semibold text-gray-900 mb-2 text-base">
                             {info.label}
                           </h3>
                           <div className="space-y-1">
                             {info.details.map((detail, i) => (
-                              <p key={i} className="text-slate-600 text-sm">
+                              <p key={i} className="text-gray-700 text-sm leading-relaxed">
                                 {detail}
                               </p>
                             ))}
@@ -389,8 +389,8 @@ export default function ContactPage() {
               </div>
 
               {/* Google Maps Embed */}
-              <Card className="border-0 shadow-md">
-                <CardContent className="p-0">
+              <Card className="border-0 shadow-md bg-white">
+                <CardContent className="p-0 bg-white">
                   <div className="w-full h-64 rounded-lg overflow-hidden">
                     <iframe
                       src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13812.17!2d31.4944!3d30.0263!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDAyJzUzLjciTiAzMcKwMjknMzYuNyJF!5e0!3m2!1sen!2seg!4v1735715456789!5m2!1sen!2seg"
@@ -401,7 +401,7 @@ export default function ContactPage() {
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
                       title="Arab ShipBroker Office Location - 5th Settlement, New Cairo, Egypt"
-                      className="w-full h-full"
+                      className="w-full h-full rounded-lg"
                     />
                   </div>
                 </CardContent>
