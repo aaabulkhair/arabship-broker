@@ -291,14 +291,15 @@ export default function ListCargoPage() {
                   </div>
 
                   {/* Navigation */}
-                  <div className="flex justify-between items-center pt-6 mt-8 border-t border-gray-200">
-                    <div className="text-sm text-gray-500">
+                  <div className="flex flex-col sm:flex-row justify-between items-center pt-8 mt-8 border-t border-gray-200 space-y-4 sm:space-y-0">
+                    <div></div>
+                    <div className="text-sm text-gray-500 order-1 sm:order-2">
                       Step {currentStep + 1} of {steps.length}
                     </div>
                     <button
                       type="button"
                       onClick={() => setCurrentStep(1)}
-                      className="px-8 py-3 bg-ocean-600 text-white rounded-lg hover:bg-ocean-700 transition-colors font-medium flex items-center space-x-2"
+                      className="w-full sm:w-auto px-8 py-3 bg-ocean-600 text-white rounded-lg hover:bg-ocean-700 transition-colors font-medium flex items-center justify-center space-x-2 order-3"
                     >
                       <span>Next Step</span>
                       <ArrowRight className="w-4 h-4" />
@@ -408,21 +409,21 @@ export default function ListCargoPage() {
                   </div>
 
                   {/* Navigation */}
-                  <div className="flex justify-between items-center pt-6 mt-8 border-t border-gray-200">
+                  <div className="flex flex-col sm:flex-row justify-between items-center pt-8 mt-8 border-t border-gray-200 space-y-4 sm:space-y-0">
                     <button
                       type="button"
                       onClick={() => setCurrentStep(0)}
-                      className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+                      className="w-full sm:w-auto px-8 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium order-2 sm:order-1"
                     >
                       Previous
                     </button>
-                    <div className="text-sm text-gray-500">
+                    <div className="text-sm text-gray-500 order-1 sm:order-2">
                       Step {currentStep + 1} of {steps.length}
                     </div>
                     <button
                       type="button"
                       onClick={() => setCurrentStep(2)}
-                      className="px-8 py-3 bg-ocean-600 text-white rounded-lg hover:bg-ocean-700 transition-colors font-medium flex items-center space-x-2"
+                      className="w-full sm:w-auto px-8 py-3 bg-ocean-600 text-white rounded-lg hover:bg-ocean-700 transition-colors font-medium flex items-center justify-center space-x-2 order-3"
                     >
                       <span>Next Step</span>
                       <ArrowRight className="w-4 h-4" />
@@ -577,36 +578,39 @@ export default function ListCargoPage() {
                   </div>
 
                   {/* Terms Agreement */}
-                  <div className={`flex items-start space-x-3 p-4 border rounded-lg cursor-pointer transition-colors bg-slate-50 border-slate-200`} 
-                       onClick={() => setFormData(prev => ({ ...prev, agreeTerms: !prev.agreeTerms }))}>
-                    <div className={`w-5 h-5 rounded border-2 flex items-center justify-center mt-0.5 transition-colors ${
-                      formData.agreeTerms ? 'border-ocean-500 bg-ocean-500' : 'border-slate-300'
-                    }`}>
-                      {formData.agreeTerms && (
-                        <div className="text-white text-xs">✓</div>
-                      )}
-                    </div>
-                    <div className="text-sm text-gray-700 leading-relaxed">
-                      I agree to the <span className="text-ocean-600 hover:text-ocean-700 underline">terms and conditions</span> and <span className="text-ocean-600 hover:text-ocean-700 underline">privacy policy</span>. I understand that Arab ShipBroker will use this information to match my cargo with suitable vessels. *
+                  <div className="p-4 bg-slate-50 rounded-lg border border-slate-200">
+                    <div className="flex items-start space-x-3">
+                      <div
+                        onClick={() => setFormData(prev => ({ ...prev, agreeTerms: !prev.agreeTerms }))}
+                        className="mt-1 w-4 h-4 border-2 border-gray-300 rounded cursor-pointer flex items-center justify-center bg-white hover:border-ocean-500 transition-colors"
+                        style={{ minWidth: '16px', minHeight: '16px' }}
+                      >
+                        {formData.agreeTerms && (
+                          <span className="text-ocean-600 font-bold text-xs">✓</span>
+                        )}
+                      </div>
+                      <label className="text-sm text-gray-700 leading-relaxed cursor-pointer select-none" onClick={() => setFormData(prev => ({ ...prev, agreeTerms: !prev.agreeTerms }))}>
+                        I agree to the <span className="text-ocean-600 hover:text-ocean-700 underline">terms and conditions</span> and <span className="text-ocean-600 hover:text-ocean-700 underline">privacy policy</span>. I understand that Arab ShipBroker will use this information to match my cargo with suitable vessels. *
+                      </label>
                     </div>
                   </div>
 
                   {/* Navigation */}
-                  <div className="flex justify-between items-center pt-6 mt-8 border-t border-gray-200">
+                  <div className="flex flex-col sm:flex-row justify-between items-center pt-8 mt-8 border-t border-gray-200 space-y-4 sm:space-y-0">
                     <button
                       type="button"
                       onClick={() => setCurrentStep(1)}
-                      className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+                      className="w-full sm:w-auto px-8 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium order-2 sm:order-1"
                     >
                       Previous
                     </button>
-                    <div className="text-sm text-gray-500">
+                    <div className="text-sm text-gray-500 order-1 sm:order-2">
                       Step {currentStep + 1} of {steps.length}
                     </div>
                     <button
                       type="submit"
                       disabled={isSubmitting || !formData.agreeTerms}
-                      className={`px-8 py-3 bg-coral-500 text-white rounded-lg hover:bg-coral-600 transition-colors font-medium flex items-center space-x-2 ${
+                      className={`w-full sm:w-auto px-8 py-3 bg-coral-500 text-white rounded-lg hover:bg-coral-600 transition-colors font-medium flex items-center justify-center space-x-2 order-3 ${
                         (isSubmitting || !formData.agreeTerms) ? 'opacity-50 cursor-not-allowed' : ''
                       }`}
                     >
