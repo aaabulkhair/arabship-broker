@@ -431,14 +431,15 @@ export default function ListVesselPage() {
                   </div>
 
                   {/* Navigation */}
-                  <div className="flex justify-between items-center pt-6 mt-8 border-t border-gray-200">
-                    <div className="text-sm text-gray-500">
+                  <div className="flex flex-col sm:flex-row justify-between items-center pt-8 mt-8 border-t border-gray-200 space-y-4 sm:space-y-0">
+                    <div></div>
+                    <div className="text-sm text-gray-500 order-1 sm:order-2">
                       Step {currentStep + 1} of {steps.length}
                     </div>
                     <button
                       type="button"
                       onClick={() => setCurrentStep(1)}
-                      className="px-8 py-3 bg-ocean-600 text-white rounded-lg hover:bg-ocean-700 transition-colors font-medium flex items-center space-x-2"
+                      className="w-full sm:w-auto px-8 py-3 bg-ocean-600 text-white rounded-lg hover:bg-ocean-700 transition-colors font-medium flex items-center justify-center space-x-2 order-3"
                     >
                       <span>Next Step</span>
                       <ArrowRight className="w-4 h-4" />
@@ -450,22 +451,22 @@ export default function ListVesselPage() {
 
             {/* Step 2: Availability */}
             {currentStep === 1 && (
-              <div className="p-8">
-                <div className="flex items-center space-x-3 mb-6">
+              <div className="p-6 md:p-8">
+                <div className="flex items-center space-x-3 mb-8">
                   <div className="w-12 h-12 bg-foam-100 rounded-full flex items-center justify-center">
                     <MapPin className="w-6 h-6 text-foam-600" />
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-gray-900">Availability</h3>
-                    <p className="text-gray-600">Specify location and availability details</p>
+                    <p className="text-gray-600 text-sm md:text-base">Specify location and availability details</p>
                   </div>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-8">
                   {/* Current Location and Availability Date */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <label htmlFor="currentLocation" className="block text-sm font-medium text-gray-700">
+                  <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
+                    <div className="space-y-3">
+                      <label htmlFor="currentLocation" className="block text-sm font-medium text-gray-700 mb-2">
                         Current Location *
                       </label>
                       <input
@@ -474,14 +475,14 @@ export default function ListVesselPage() {
                         name="currentLocation"
                         value={formData.currentLocation}
                         onChange={handleInputChange}
-                        className="form-input w-full px-4 py-3 border border-slate-300 rounded-lg focus:border-ocean-500 focus:ring-1 focus:ring-ocean-500 transition-colors"
+                        className="form-input w-full px-4 py-3 border border-slate-300 rounded-lg focus:border-ocean-500 focus:ring-1 focus:ring-ocean-500 transition-colors text-base"
                         placeholder="e.g., Jebel Ali, Dubai"
                         required
                       />
                     </div>
 
-                    <div className="space-y-2">
-                      <label htmlFor="availability" className="block text-sm font-medium text-gray-700">
+                    <div className="space-y-3">
+                      <label htmlFor="availability" className="block text-sm font-medium text-gray-700 mb-2">
                         Available Date *
                       </label>
                       <input
@@ -490,16 +491,16 @@ export default function ListVesselPage() {
                         name="availability"
                         value={formData.availability}
                         onChange={handleInputChange}
-                        className="form-input w-full px-4 py-3 border border-slate-300 rounded-lg focus:border-ocean-500 focus:ring-1 focus:ring-ocean-500 transition-colors"
+                        className="form-input w-full px-4 py-3 border border-slate-300 rounded-lg focus:border-ocean-500 focus:ring-1 focus:ring-ocean-500 transition-colors text-base"
                         required
                       />
                     </div>
                   </div>
 
                   {/* Preferred Trade Route */}
-                  <div className="space-y-2">
-                    <label htmlFor="preferredTrade" className="block text-sm font-medium text-gray-700">
-                      Preferred Trade Route <span className="text-gray-500">(optional)</span>
+                  <div className="space-y-3">
+                    <label htmlFor="preferredTrade" className="block text-sm font-medium text-gray-700 mb-2">
+                      Preferred Trade Route <span className="text-gray-500 text-xs">(optional)</span>
                     </label>
                     <input
                       type="text"
@@ -507,15 +508,15 @@ export default function ListVesselPage() {
                       name="preferredTrade"
                       value={formData.preferredTrade}
                       onChange={handleInputChange}
-                      className="form-input w-full px-4 py-3 border border-slate-300 rounded-lg focus:border-ocean-500 focus:ring-1 focus:ring-ocean-500 transition-colors"
+                      className="form-input w-full px-4 py-3 border border-slate-300 rounded-lg focus:border-ocean-500 focus:ring-1 focus:ring-ocean-500 transition-colors text-base"
                       placeholder="e.g., Middle East to India, or Any"
                     />
                   </div>
 
                   {/* Target Rate */}
-                  <div className="space-y-2">
-                    <label htmlFor="targetRate" className="block text-sm font-medium text-gray-700">
-                      Target Freight Rate <span className="text-gray-500">(optional)</span>
+                  <div className="space-y-3">
+                    <label htmlFor="targetRate" className="block text-sm font-medium text-gray-700 mb-2">
+                      Target Freight Rate <span className="text-gray-500 text-xs">(optional)</span>
                     </label>
                     <input
                       type="text"
@@ -523,28 +524,30 @@ export default function ListVesselPage() {
                       name="targetRate"
                       value={formData.targetRate}
                       onChange={handleInputChange}
-                      className="form-input w-full px-4 py-3 border border-slate-300 rounded-lg focus:border-ocean-500 focus:ring-1 focus:ring-ocean-500 transition-colors"
+                      className="form-input w-full px-4 py-3 border border-slate-300 rounded-lg focus:border-ocean-500 focus:ring-1 focus:ring-ocean-500 transition-colors text-base"
                       placeholder="e.g., $25/MT or USD 15,000/day"
                     />
-                    <p className="text-xs text-gray-500">Leave blank for best market rate or enter your target rate</p>
+                    <p className="text-xs text-gray-500 mt-2 leading-relaxed">
+                      Leave blank for best market rate or enter your target rate
+                    </p>
                   </div>
 
                   {/* Navigation */}
-                  <div className="flex justify-between items-center pt-6 mt-8 border-t border-gray-200">
+                  <div className="flex flex-col sm:flex-row justify-between items-center pt-8 mt-8 border-t border-gray-200 space-y-4 sm:space-y-0">
                     <button
                       type="button"
                       onClick={() => setCurrentStep(0)}
-                      className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+                      className="w-full sm:w-auto px-8 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium order-2 sm:order-1"
                     >
                       Previous
                     </button>
-                    <div className="text-sm text-gray-500">
+                    <div className="text-sm text-gray-500 order-1 sm:order-2">
                       Step {currentStep + 1} of {steps.length}
                     </div>
                     <button
                       type="button"
                       onClick={() => setCurrentStep(2)}
-                      className="px-8 py-3 bg-ocean-600 text-white rounded-lg hover:bg-ocean-700 transition-colors font-medium flex items-center space-x-2"
+                      className="w-full sm:w-auto px-8 py-3 bg-ocean-600 text-white rounded-lg hover:bg-ocean-700 transition-colors font-medium flex items-center justify-center space-x-2 order-3"
                     >
                       <span>Next Step</span>
                       <ArrowRight className="w-4 h-4" />
@@ -659,20 +662,20 @@ export default function ListVesselPage() {
                   </div>
 
                   {/* Navigation */}
-                  <div className="flex justify-between items-center pt-6 mt-8 border-t border-gray-200">
+                  <div className="flex flex-col sm:flex-row justify-between items-center pt-8 mt-8 border-t border-gray-200 space-y-4 sm:space-y-0">
                     <button
                       type="button"
                       onClick={() => setCurrentStep(1)}
-                      className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+                      className="w-full sm:w-auto px-8 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium order-2 sm:order-1"
                     >
                       Previous
                     </button>
-                    <div className="text-sm text-gray-500">
+                    <div className="text-sm text-gray-500 order-1 sm:order-2">
                       Step {currentStep + 1} of {steps.length}
                     </div>
                     <button
                       type="submit"
-                      className="px-8 py-3 bg-coral-500 text-white rounded-lg hover:bg-coral-600 transition-colors font-medium flex items-center space-x-2"
+                      className="w-full sm:w-auto px-8 py-3 bg-coral-500 text-white rounded-lg hover:bg-coral-600 transition-colors font-medium flex items-center justify-center space-x-2 order-3"
                     >
                       <Ship className="w-4 h-4" />
                       <span>Submit Vessel</span>
