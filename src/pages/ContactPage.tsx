@@ -10,7 +10,6 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { MapPin, Phone, Mail, Clock, Send, Shield } from 'lucide-react';
-import { NewsletterSignup } from '@/components/NewsletterSignup';
 import { toast } from 'sonner';
 import { supabase } from '@/lib/supabase';
 
@@ -406,9 +405,6 @@ export default function ContactPage() {
                   </div>
                 </CardContent>
               </Card>
-
-              {/* Newsletter Signup */}
-              <NewsletterSignup variant="card" />
             </motion.div>
           </div>
         </div>
