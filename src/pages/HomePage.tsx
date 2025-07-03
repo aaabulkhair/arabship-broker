@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { Ship, TrendingUp, Users, ArrowRight, Anchor, BarChart3, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { NewsletterSignup } from '@/components/NewsletterSignup';
 
 const features = [
   {
@@ -32,7 +31,7 @@ export default function HomePage() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: 'url(https://images.pexels.com/photos/906982/pexels-photo-906982.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)'
+            backgroundImage: 'url(/website-cover.jpeg)'
           }}
         />
         <div className="absolute inset-0 bg-ocean-900/60" />
@@ -150,27 +149,11 @@ export default function HomePage() {
               className="relative"
             >
               <img
-                src="https://images.pexels.com/photos/1451618/pexels-photo-1451618.jpeg?auto=compress&cs=tinysrgb&w=800"
+                src="/home-image.jpeg"
                 alt="Maritime operations"
                 className="rounded-lg shadow-xl w-full h-[400px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ocean-900/20 to-transparent rounded-lg" />
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Newsletter Section */}
-      <section className="section-padding bg-white">
-        <div className="container">
-          <div className="max-w-2xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <NewsletterSignup variant="card" className="mx-auto" />
             </motion.div>
           </div>
         </div>

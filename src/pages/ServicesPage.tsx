@@ -84,7 +84,7 @@ export default function ServicesPage() {
               Comprehensive Maritime Services
             </h1>
             <p className="text-xl text-ocean-100 leading-relaxed drop-shadow">
-              From chartering to vessel sales, we provide end-to-end maritime solutions tailored to the unique needs of the MENA shipping market.
+              From Brokerage to vessel sale & purchase, We provide end-to-end maritime solutions tailored to the unique needs of the MENA shipping market.
             </p>
           </motion.div>
         </div>
