@@ -1,10 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, User, LogOut } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from './ui/button';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from './ui/dropdown-menu';
-import { Avatar, AvatarFallback } from './ui/avatar';
-import { useAuth } from '@/contexts/AuthContext';
 import { cn } from '@/lib/utils';
 
 const navigation = [
@@ -18,11 +15,6 @@ const navigation = [
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
-  const { user, signOut } = useAuth();
-
-  const handleSignOut = async () => {
-    await signOut();
-  };
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-ocean-200 shadow-sm">
@@ -56,46 +48,6 @@ export function Navbar() {
                 {item.name}
               </Link>
             ))}
-          </div>
-
-          {/* User Menu / Sign In */}
-          <div className="hidden md:flex items-center space-x-4">
-            {user ? (
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="relative h-8 w-8 rounded-full focus-ring">
-                    <Avatar className="h-8 w-8">
-                      <AvatarFallback className="bg-ocean-500 text-white">
-                        {user.email?.charAt(0).toUpperCase()}
-                      </AvatarFallback>
-                    </Avatar>
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-56" align="end" forceMount>
-                  <div className="flex items-center justify-start gap-2 p-2">
-                    <div className="flex flex-col space-y-1 leading-none">
-                      <p className="font-medium text-ocean-900">{user.email}</p>
-                    </div>
-                  </div>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem asChild>
-                    <Link to="/dashboard" className="cursor-pointer focus-ring">
-                      <User className="mr-2 h-4 w-4" />
-                      Dashboard
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem onClick={handleSignOut} className="cursor-pointer focus-ring">
-                    <LogOut className="mr-2 h-4 w-4" />
-                    Sign out
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            ) : (
-              <Button asChild className="btn-primary focus-ring">
-                <Link to="/sign-in">Sign In</Link>
-              </Button>
-            )}
           </div>
 
           {/* Mobile menu button */}
@@ -134,36 +86,6 @@ export function Navbar() {
                   {item.name}
                 </Link>
               ))}
-              <div className="border-t border-ocean-200 pt-3 mt-3">
-                {user ? (
-                  <div className="space-y-1">
-                    <Link
-                      to="/dashboard"
-                      className="block px-3 py-2 text-base font-medium text-slate-600 hover:text-ocean-500 hover:bg-ocean-50 rounded-md focus-ring"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      Dashboard
-                    </Link>
-                    <button
-                      onClick={() => {
-                        handleSignOut();
-                        setMobileMenuOpen(false);
-                      }}
-                      className="block w-full text-left px-3 py-2 text-base font-medium text-slate-600 hover:text-ocean-500 hover:bg-ocean-50 rounded-md focus-ring"
-                    >
-                      Sign Out
-                    </button>
-                  </div>
-                ) : (
-                  <Link
-                    to="/sign-in"
-                    className="block px-3 py-2 text-base font-medium bg-ocean-500 hover:bg-ocean-600 text-white rounded-md text-center focus-ring transition-colors"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Sign In
-                  </Link>
-                )}
-              </div>
             </div>
           </div>
         )}

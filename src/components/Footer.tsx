@@ -50,9 +50,6 @@ export function Footer() {
               <Link to="/list-vessel" className="block text-ocean-200 hover:text-foam-300 transition-colors text-sm focus-ring rounded-md">
                 List Your Vessel
               </Link>
-              <Link to="/blog" className="block text-ocean-200 hover:text-foam-300 transition-colors text-sm focus-ring rounded-md">
-                Market Insights
-              </Link>
               <Link to="/contact" className="block text-ocean-200 hover:text-foam-300 transition-colors text-sm focus-ring rounded-md">
                 Contact Us
               </Link>
