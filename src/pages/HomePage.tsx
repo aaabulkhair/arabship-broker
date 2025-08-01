@@ -25,7 +25,7 @@ const features = [
 export default function HomePage() {
   return (
     <div className="overflow-hidden">
-      {/* Hero Section */}
+      {/* Hero Section Updated */}
       <section className="relative min-h-[90vh] flex items-center justify-center bg-gradient-to-br from-ocean-900 via-ocean-800 to-ocean-700">
         {/* Background Image with improved contrast */}
         <div 
