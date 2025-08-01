@@ -129,7 +129,7 @@ export default function ContactPage() {
           phone: data.phone,
           company: data.howDidYouFindUs, // Store "how did you find us" in company field for now
           message: data.message
-        }, { returning: 'minimal' });
+        });
 
       if (error) {
         console.error('Supabase error details:', error);
